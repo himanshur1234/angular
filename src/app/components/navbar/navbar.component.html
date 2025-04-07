@@ -1,0 +1,35 @@
+<mat-toolbar color="accent">
+    <a 
+    routerLink="/"
+    mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Examportal</span>
+    <span class="example-spacer"></span>
+    <a
+    *ngIf="!isLogedIn"
+    routerLink="/login"
+    mat-raised-button color="accent" >
+      Login
+    </a>
+
+    <a  
+    *ngIf="!isLogedIn"
+    routerLink="/signup"
+    mat-raised-button color="accent"  style="margin-right: 4rem; margin-left: 20px;">
+        Register
+    </a>
+
+    <a
+    *ngIf="isLogedIn"
+    mat-raised-button color="accent"  style="margin-right: 4rem; margin-left: 20px;">
+       {{user?.username}}
+    </a>
+
+    <a  
+    (click)="logout()"
+    *ngIf="isLogedIn"
+    mat-raised-button color="accent"  style="margin-right: 4rem; margin-left: 20px;">
+        Logout
+    </a>
+  </mat-toolbar>
